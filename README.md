@@ -1,7 +1,5 @@
 # Tweet Emotion Labeling Task
 
-A Flask web app for collecting emotion labels for tweets.
-
 ## Run locally
 
 1. Create and activate a virtual environment:
