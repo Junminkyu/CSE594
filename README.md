@@ -25,8 +25,6 @@ A Flask web app for collecting emotion labels for tweets.
    set +a
    ```
 
-   The file must define `DATABASE_URL` and `SECRET_KEY` as `KEY=value` lines.
-
 4. Start the development server:
 
    ```bash
