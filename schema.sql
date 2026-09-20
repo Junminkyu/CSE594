@@ -1,3 +1,4 @@
+-- Schema for the assignment
 CREATE TABLE IF NOT EXISTS tweets (
     tweet_id TEXT PRIMARY KEY,
     text TEXT NOT NULL,
