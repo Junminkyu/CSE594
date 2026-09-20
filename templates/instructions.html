@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="shell">
+  <p class="eyebrow">Before you begin</p>
+  <section class="panel">
+    <p>You will read five tweets. Read each tweet and select the emotion that best describes it.</p>
+    <p>Please use your best judgment and answer every question before submitting your labels.</p>
+    <form action="{{ url_for('label_tweet') }}" method="get">
+      <button type="submit">Begin task</button>
+    </form>
+  </section>
+</main>
+{% endblock %}

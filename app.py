@@ -69,8 +69,18 @@ def start_task():
     if not participant_id:
         return render_template("home.html", error="Enter a participant ID to begin."), 400
 
-    # Draw five random tweets from the database for the participant to label
+    # Check if the participant ID is duplicate
     with database_connection() as connection:
+        existing_submission = connection.execute(
+            "SELECT * FROM submissions WHERE participant_id = %s LIMIT 1",
+            (participant_id,),
+        ).fetchone()
+        if existing_submission:
+            return render_template(
+                "home.html", error="This username has already been used. Enter different username."
+            ), 400
+
+        # Draw five random tweets from the database for the participant to label
         tweets = connection.execute(
             "SELECT tweet_id, text FROM tweets ORDER BY RANDOM() LIMIT 5"
         ).fetchall()
@@ -136,7 +146,7 @@ def complete():
 def results():
     with database_connection() as connection:
         submissions = connection.execute(
-            "SELECT participant_id, tweet_id, tweet_text, selected_label FROM submissions"
+            "SELECT participant_id, tweet_text, selected_label FROM submissions"
         ).fetchall()
     return render_template("results.html", submissions=submissions, emotions=EMOTIONS)
 

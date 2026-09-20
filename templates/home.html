@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="shell">
-  <p class="eyebrow">EECS 594 Annotation Study</p>
-  <h1>Emotion labeling</h1>
+  <p class="eyebrow">Tweet Emotion Labeling Task!</p>
   <p class="intro">Read five tweets and select the emotion expressed most clearly in each one. Choose from sadness, joy, love, anger, fear, and surprise.</p>
   <form class="panel" action="{{ url_for('start_task') }}" method="post">
-    <label>Participant ID<input name="participant_id" placeholder="e.g., participant-01" required></label>
-    <button type="submit">Start task</button>
+    <label>Enter Your Username!<input name="participant_id" placeholder="e.g., John Doe" required></label>
     {% if error %}
     <p class="error">{{ error }}</p>
     {% endif %}
+    <button type="submit">Start task</button>
   </form>
 </main>
 {% endblock %}
