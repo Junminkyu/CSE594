@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<main class="shell">
-  <p class="eyebrow">Tweet {{ position + 1 }} of 5</p>
+<main class="page">
+  <p class="title">Tweet {{ position + 1 }} of 5</p>
   <div class="progress"><span style="width: {{ ((position + 1) / 5) * 100 }}%"></span></div>
   <form class="panel" method="post">
     <blockquote>{{ tweet.text }}</blockquote>

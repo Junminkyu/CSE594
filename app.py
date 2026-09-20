@@ -8,7 +8,7 @@ import psycopg
 from psycopg.rows import dict_row
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", "change-this-secret-before-deployment")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -92,7 +92,12 @@ def start_task():
     session["answers"] = {}
     # The index out of 5 randomly selected tweets
     session["index"] = 0
-    return redirect(url_for("label_tweet"))
+    return redirect(url_for("instructions"))
+
+
+@app.get("/instructions")
+def instructions():
+    return render_template("instructions.html")
 
 
 @app.route("/label", methods=["GET", "POST"])

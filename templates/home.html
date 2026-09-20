@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<main class="shell">
-  <p class="eyebrow">Tweet Emotion Labeling Task!</p>
+<main class="page">
+  <p class="title">Tweet Emotion Labeling Task!</p>
   <p class="intro">Read five tweets and select the emotion expressed most clearly in each one. Choose from sadness, joy, love, anger, fear, and surprise.</p>
   <form class="panel" action="{{ url_for('start_task') }}" method="post">
     <label>Enter Your Username!<input name="participant_id" placeholder="e.g., John Doe" required></label>
